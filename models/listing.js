@@ -11,6 +11,7 @@ const listingSchema = new Schema({
     },
     image:{
         type: String,
+        default: "https://unsplash.com/photos/wooden-sauna-interior-with-forest-view-xrjx6nX3Mp4https://unsplash.com/photos/milky-way-above-radio-tower-vf_nxn3UcAA",
         set: (v) => v === ""? "https://unsplash.com/photos/wooden-sauna-interior-with-forest-view-xrjx6nX3Mp4https://unsplash.com/photos/milky-way-above-radio-tower-vf_nxn3UcAA" : v,
     },
     price:{
@@ -26,4 +27,4 @@ const listingSchema = new Schema({
 
 const Listing = mongoose.model("Listing", listingSchema);
 
-module.export = Listing;
+module.exports = Listing;
