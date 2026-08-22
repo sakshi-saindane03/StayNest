@@ -11,8 +11,8 @@ const listingSchema = new Schema({
     },
     image:{
         type: String,
-        default: "https://unsplash.com/photos/wooden-sauna-interior-with-forest-view-xrjx6nX3Mp4https://unsplash.com/photos/milky-way-above-radio-tower-vf_nxn3UcAA",
-        set: (v) => v === ""? "https://unsplash.com/photos/wooden-sauna-interior-with-forest-view-xrjx6nX3Mp4https://unsplash.com/photos/milky-way-above-radio-tower-vf_nxn3UcAA" : v,
+        default: "/default-img.jpg",
+        set: (v) => v === ""? "/default-img.jpg" : v,
     },
     price:{
         type: Number
