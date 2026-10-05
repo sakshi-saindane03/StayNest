@@ -4,8 +4,15 @@ const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", {allListings});
+    let { category } = req.query;
+    let allListings;
+    if(category){
+        allListings = await Listing.find({category: category});
+    }
+    else{
+        allListings = await Listing.find({});
+    }
+    res.render("listings/index.ejs", { allListings });
 };
 
 module.exports.renderNewForm = async(req, res) => {
@@ -20,7 +27,8 @@ module.exports.showListing = async(req, res) => {
             populate: {
                 path:"author"
             },
-        }).populate("owner");
+        })
+        .populate("owner");
     if(!listing){
         req.flash("error", "Listing you requested for does not exist!");
         return res.redirect("/listings");
@@ -35,8 +43,6 @@ module.exports.createListing = async (req, res, next) => {
     })
     .send();
 
-    res.send("Done!");
-
     let url = req.file.path;
     let filename = req.file.filename;
     const newListing = new Listing(req.body.listing);
@@ -46,7 +52,6 @@ module.exports.createListing = async (req, res, next) => {
     newListing.geometry = response.body.features[0].geometry;
 
     let savedListing = await newListing.save();
-    console.log(savedListing);
     req.flash("success", "New Listing Created!");
     res.redirect("/listings");
 }
@@ -85,4 +90,51 @@ module.exports.destroyListing = async (req, res) => {
     req.flash("success", "Listing Deleted!");
 
     res.redirect(`/listings`);
+};
+
+module.exports.searchOptions = async (req, res) => {
+
+    let { location } = req.query;
+
+    if (location) {
+
+        let allListings = await Listing.find({
+            location: { $regex: location, $options: "i" }
+        });
+
+        if (allListings.length === 0) {
+
+            req.flash("error", "Listing not exist!");
+            allListings = await Listing.find({});
+            let error = req.flash("error")[0];
+
+            return res.render("listings/index.ejs", {
+                allListings,
+                error
+            });
+        }
+        res.render("listings/index.ejs", { allListings });
+
+    } else {
+
+        let allListings = await Listing.find({});
+
+        res.render("listings/index.ejs", { allListings });
+    }
+};
+
+module.exports.categorySuggestions = async (req, res) => {
+    let { location } = req.query;
+
+    if (!location) {
+        return res.json([]);
+    }
+
+    let listings = await Listing.find({
+        location: { $regex: location, $options: "i" }
+    }).limit(5);
+
+    let locations = [...new Set(listings.map(listing => listing.location))];
+
+    res.json(locations);
 };

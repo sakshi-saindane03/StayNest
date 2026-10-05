@@ -1,15 +1,490 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
+<footer class="sn-footer">
+
+    <!-- Newsletter Section -->
+    <div class="sn-newsletter">
+        <div class="sn-newsletter-content">
+            <div>
+                <h3>Stay inspired with StayNest</h3>
+                <p>
+                    Get travel ideas, beautiful stays and special offers
+                    delivered to your inbox.
+                </p>
+            </div>
+
+            <form class="sn-newsletter-form">
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
-        <div class="f-info-brand">&copy; StayNest Private Limited</div>
-        <div class="f-info-links">
+    </div>
+
+
+    <!-- Main Footer -->
+    <div class="sn-footer-main">
+
+        <!-- Brand -->
+        <div class="sn-footer-brand">
+            <div class="sn-brand-logo">
+                <i class="fa-regular fa-compass"></i>
+                <span>StayNest</span>
+            </div>
+
+            <p>
+                Discover unique places to stay and unforgettable
+                experiences around the world.
+            </p>
+
+            <div class="sn-social-icons">
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="#" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div class="sn-footer-column">
+            <h4>Explore</h4>
+
+            <a href="/listings">All Listings</a>
+            <a href="/listings?category=Trending">Trending</a>
+            <a href="/listings?category=Mountains">Mountains</a>
+            <a href="/listings?category=Amazing%20Pools">Amazing Pools</a>
+            <a href="/listings?category=Boats">Boats</a>
+        </div>
+
+
+        <!-- StayNest -->
+        <div class="sn-footer-column">
+            <h4>StayNest</h4>
+
+            <a href="/listings/new">Airbnb your home</a>
+            <a href="/signup">Create account</a>
+            <a href="/login">Log in</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
         </div>
 
+
+        <!-- Support -->
+        <div class="sn-footer-column">
+            <h4>Support</h4>
+
+            <a href="#">Help Center</a>
+            <a href="#">Safety</a>
+            <a href="#">Cancellation</a>
+            <a href="#">Contact us</a>
+        </div>
+
     </div>
+
+
+    <!-- Bottom Footer -->
+    <div class="sn-footer-bottom">
+
+        <div>
+            © <%= new Date().getFullYear() %> StayNest Private Limited
+        </div>
+
+        <div class="sn-bottom-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="#">Sitemap</a>
+        </div>
+
+        <button id="backToTop" class="sn-top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+            Top
+        </button>
+
+    </div>
+
 </footer>
+
+
+<style>
+
+/* ================================
+   STAYNEST FOOTER
+================================ */
+
+.sn-footer {
+    margin-top: 4rem;
+    background: #f7f7f7;
+    color: #222;
+}
+
+
+/* ================================
+   NEWSLETTER
+================================ */
+
+.sn-newsletter {
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 2.5rem 2rem;
+}
+
+.sn-newsletter-content {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.sn-newsletter h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.sn-newsletter p {
+    margin: 0;
+    color: #717171;
+    font-size: 0.9rem;
+}
+
+
+/* Newsletter Form */
+
+.sn-newsletter-form {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.sn-newsletter-form input {
+    width: 280px;
+    height: 3rem;
+    padding: 0 1rem;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+
+    outline: none;
+    font-size: 0.9rem;
+
+    transition: 0.2s ease;
+}
+
+.sn-newsletter-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+}
+
+.sn-newsletter-form button {
+    height: 3rem;
+    padding: 0 1.3rem;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.sn-newsletter-form button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* ================================
+   MAIN FOOTER
+================================ */
+
+.sn-footer-main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 2rem;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+
+/* ================================
+   BRAND
+================================ */
+
+.sn-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.sn-brand-logo i {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.sn-footer-brand p {
+    max-width: 300px;
+    margin: 1rem 0;
+
+    color: #717171;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   SOCIAL ICONS
+================================ */
+
+.sn-social-icons {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.sn-social-icons a {
+    width: 2.2rem;
+    height: 2.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: white;
+
+    color: #333;
+    text-decoration: none;
+
+    border: 1px solid #e3e3e3;
+
+    transition: all 0.2s ease;
+}
+
+.sn-social-icons a:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+/* ================================
+   FOOTER COLUMNS
+================================ */
+
+.sn-footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.sn-footer-column h4 {
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sn-footer-column a {
+    width: fit-content;
+
+    margin-bottom: 0.65rem;
+
+    color: #717171;
+    text-decoration: none;
+    font-size: 0.88rem;
+
+    transition: all 0.2s ease;
+}
+
+.sn-footer-column a:hover {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+
+/* ================================
+   BOTTOM FOOTER
+================================ */
+
+.sn-footer-bottom {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 1.3rem 2rem;
+
+    border-top: 1px solid #dddddd;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #717171;
+    font-size: 0.82rem;
+}
+
+.sn-bottom-links {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.sn-bottom-links a {
+    color: #717171;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sn-bottom-links a:hover {
+    color: var(--primary);
+}
+
+
+/* ================================
+   BACK TO TOP
+================================ */
+
+.sn-top-btn {
+    border: none;
+    background: transparent;
+
+    color: #555;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.sn-top-btn:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .sn-newsletter-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sn-footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sn-footer-brand {
+        grid-column: span 2;
+    }
+
+    .sn-footer-bottom {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sn-newsletter {
+        padding: 2rem 1rem;
+    }
+
+    .sn-newsletter-form {
+        width: 100%;
+    }
+
+    .sn-newsletter-form input {
+        width: 100%;
+    }
+
+    .sn-footer-main {
+        grid-template-columns: 1fr 1fr;
+        padding: 2.5rem 1rem;
+        gap: 2rem;
+    }
+
+    .sn-footer-brand {
+        grid-column: span 2;
+    }
+
+    .sn-footer-bottom {
+        padding: 1.2rem 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sn-bottom-links {
+        order: 2;
+    }
+}
+
+</style>
+
+
+<script>
+
+    /* ================================
+       BACK TO TOP
+    ================================ */
+
+    const backToTop = document.getElementById("backToTop");
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+
+    /* ================================
+       NEWSLETTER DEMO
+    ================================ */
+
+    const newsletterForm =
+        document.querySelector(".sn-newsletter-form");
+
+    newsletterForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const email =
+            newsletterForm.querySelector("input").value;
+
+        if (email) {
+
+            alert("Thank you for subscribing to StayNest!");
+
+            newsletterForm.reset();
+
+        }
+
+    });
+
+</script>

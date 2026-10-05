@@ -1,3 +1,7 @@
+/* =========================
+   GENERAL
+========================= */
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
@@ -23,7 +27,92 @@ body {
     color: #222222 !important;
 }
 
-/* Footer */
+
+/* =========================
+   FILTERS / CATEGORIES
+========================= */
+
+#filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.2rem 0 1.5rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+#filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    min-width: 70px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    opacity: 0.65;
+    padding-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.filter:hover {
+    opacity: 1;
+    color: #fe424d;
+}
+
+.filter i {
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+    transition: transform 0.2s ease;
+}
+
+.filter:hover i {
+    transform: translateY(-3px);
+}
+
+.filter p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   TAX TOGGLE
+========================= */
+
+.tax-toggle {
+    margin-left: auto;
+    min-width: 220px;
+    height: 3rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid #dddddd;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tax-toggle:hover {
+    border-color: #222;
+}
+
+.tax-toggle .form-check-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #444;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
 .f-info-links a {
     text-decoration: none;
     color: #222222;
@@ -33,7 +122,9 @@ body {
     text-decoration: underline;
 }
 
-.f-info-links, .f-info-socials, .f-info-brand {
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -47,76 +138,1430 @@ body {
 
 .f-info {
     text-align: center;
-    height: 8rem;
+    min-height: 8rem;
     background-color: #ebebeb;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-evenly;
+    align-items: center;
 }
 
-/* Cards */
-.listing-card {
-    border: none !important;
-    margin-bottom: 2rem;
-}
 
-.card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
-}
+/* =========================
+   LISTING CARDS
+========================= */
 
-.card-body {
-    padding: 0 !important;
-}
-
-.card-text p {
-    font-weight: 400;
+.row {
+    margin-top: 0.5rem;
 }
 
 .listing-link {
     text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-/* Card Effect */
+.listing-card {
+    border: none !important;
+    background: transparent !important;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    transition: transform 0.2s ease;
+}
+
+.listing-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-img-top {
+    width: 100% !important;
+    height: 20rem !important;
+    object-fit: cover !important;
+    border-radius: 1rem !important;
+    transition: transform 0.35s ease;
+}
+
+.listing-card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.card-body {
+    padding: 0.75rem 0 0 !important;
+}
+
+.card-text {
+    margin: 0;
+    color: #222;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.card-text b {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card-text:hover {
+    color: #222;
+}
+
+
+/* =========================
+   CARD IMAGE OVERLAY
+========================= */
+
 .card-img-overlay {
     opacity: 0;
+    border-radius: 1rem;
+    transition: opacity 0.25s ease;
 }
 
 .card-img-overlay:hover {
-    opacity: 0.2;
+    opacity: 0.12;
     background-color: white;
 }
 
-/* New Page*/
+
+/* =========================
+   TAX INFORMATION
+========================= */
+
+.tax-info {
+    display: none;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   NEW PAGE
+========================= */
+
 .add-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-/* Edit Page*/
+
+/* =========================
+   EDIT PAGE
+========================= */
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-/* Show Page */
-.show-img {
-    height: 30vh;
+
+/* =================================
+   SHOW LISTING PAGE
+================================= */
+
+.show-page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
 }
 
-.btns {
-    display: flex;
+
+/* =================================
+   LISTING TITLE
+================================= */
+
+.show-title {
+    max-width: 900px;
+    margin: 0 auto 1.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
 }
+
+.show-subtitle {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+}
+
+
+/* =================================
+   MAIN LISTING CARD
+================================= */
 
 .show-card {
-    padding-left: 0;
-    padding-right: 0;
+    max-width: 900px;
+    margin: 0 auto;
+
+    padding: 0 !important;
+
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 18px !important;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
 }
 
-/* Map */
+
+/* =================================
+   LISTING IMAGE
+================================= */
+
+.show-img {
+    width: 100% !important;
+    height: 430px !important;
+
+    object-fit: cover !important;
+
+    border-radius: 0 !important;
+}
+
+
+/* =================================
+   LISTING DETAILS
+================================= */
+
+.show-card .card-body {
+    padding: 1.5rem 1.7rem !important;
+}
+
+.show-card .card-text {
+    margin-bottom: 0.7rem;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.show-card .card-text:first-child {
+    font-size: 0.9rem;
+    color: #717171;
+}
+
+.show-card .card-text:first-child i {
+    color: #222;
+    font-weight: 600;
+}
+
+
+/* Price */
+
+.show-card .card-text:nth-child(3) {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #222;
+}
+
+
+/* Location */
+
+.show-card .card-text:nth-child(4),
+.show-card .card-text:nth-child(5) {
+    color: #666;
+}
+
+
+/* =================================
+   ACTION BUTTONS
+================================= */
+
+.btns {
+    max-width: 900px;
+    margin: 1.2rem auto 2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.btns .edit-btn,
+.btns form button {
+    width: auto !important;
+    margin: 0 !important;
+
+    min-width: 100px;
+
+    border-radius: 9px !important;
+
+    padding: 0.55rem 1.2rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Edit */
+
+.btns .edit-btn {
+    /* background-color: var(--primary) !important; */
+    background-color: #e63152 !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+.btns .edit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(255, 56, 92, 0.2);
+}
+
+
+/* Delete */
+
+.btns form button {
+    background-color: #222 !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+.btns form button:hover {
+    background-color: #000 !important;
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   REVIEW SECTION
+================================= */
+
+.review-section {
+    max-width: 900px;
+    margin: 3rem auto 0;
+}
+
+.review-section hr {
+    border-color: #e5e5e5;
+    margin: 2rem 0;
+}
+
+.review-section h4 {
+    margin-bottom: 1.5rem;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* Review labels */
+
+.review-section .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* Review textarea */
+
+.review-section textarea {
+    min-height: 130px;
+
+    border: 1px solid #d7d7d7 !important;
+    border-radius: 10px !important;
+
+    padding: 0.8rem 1rem;
+
+    resize: vertical;
+
+    box-shadow: none !important;
+
+    transition: 0.2s ease;
+}
+
+.review-section textarea:focus {
+    border-color: var(--primary) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 56, 92, 0.1) !important;
+}
+
+
+/* Review submit button */
+
+.review-submit-btn {
+    background-color: #e63152 !important;
+    border: none !important;
+
+    color: white !important;
+
+    border-radius: 9px !important;
+
+    padding: 0.55rem 1.3rem;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.review-submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   ALL REVIEWS
+================================= */
+
+.reviews-title {
+    margin-bottom: 1.2rem;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.review-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1rem;
+}
+
+
+/* =================================
+   REVIEW CARD
+================================= */
+
+.review-card {
+    margin: 0 !important;
+
+    width: auto !important;
+
+    border: 1px solid #e5e5e5 !important;
+
+    border-radius: 14px !important;
+
+    background: #fff;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.review-card .card-body {
+    padding: 1.2rem !important;
+}
+
+.review-card .card-title {
+    margin-bottom: 0.7rem;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    color: #222;
+}
+
+.review-card .card-text {
+    color: #555;
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+
+/* Review delete */
+
+.review-delete-btn {
+    border: none !important;
+    border-radius: 7px !important;
+
+    background: #f1f1f1 !important;
+    color: #333 !important;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.78rem;
+    transition: all 0.2s ease;
+}
+
+.review-delete-btn:hover {
+    background: #222 !important;
+    color: #fff !important;
+}
+
+
+/* =================================
+   MAP SECTION
+================================= */
+
+.map-section {
+    max-width: 900px;
+    margin: 3rem auto 0;
+}
+
+.map-section h3 {
+    margin-bottom: 1rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e5e5;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    .show-page {
+        padding-top: 1rem;
+    }
+
+    .show-title {
+        font-size: 1.6rem;
+    }
+
+    .show-card {
+        border-radius: 14px !important;
+    }
+
+    .show-img {
+        height: 300px !important;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 320px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .show-title {
+        font-size: 1.4rem;
+    }
+
+    .show-card .card-body {
+        padding: 1.2rem !important;
+    }
+
+    .show-img {
+        height: 250px !important;
+    }
+
+    .btns {
+        flex-wrap: wrap;
+    }
+
+    .btns .edit-btn,
+    .btns form button {
+        min-width: 90px;
+    }
+}
+
+
+/* =========================
+   MAP
+========================= */
+
 #map {
     height: 400px;
-    width: 80vh;
+    width: 100%;
+}
+
+
+/* =========================
+   SEARCH SUGGESTIONS
+========================= */
+
+.search-container {
+    position: relative;
+}
+
+#suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    #filters {
+        gap: 1.4rem;
+    }
+
+    .filter {
+        min-width: 65px;
+    }
+
+    .filter i {
+        font-size: 1.2rem;
+    }
+
+    .filter p {
+        font-size: 0.72rem;
+    }
+
+    .tax-toggle {
+        min-width: 200px;
+    }
+
+    .card-img-top {
+        height: 18rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+
+    #filters {
+        gap: 1.2rem;
+    }
+
+    .tax-toggle {
+        display: none;
+    }
+
+    .card-img-top {
+        height: 16rem !important;
+    }
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 5rem;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 0 2rem !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.navbar .container-fluid {
+    max-width: 1450px;
+    margin: auto;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2.15rem;
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover .fa-compass {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar-nav {
+    align-items: center;
+}
+
+.navbar .nav-link {
+    color: #222222 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.6rem 0.8rem !important;
+    margin: 0 0.15rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    background-color: #f7f7f7;
+    color: #fe424d !important;
+}
+
+
+/* =========================
+   SEARCH FORM
+========================= */
+
+.navbar form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-inp {
+    width: 300px;
+    height: 2.9rem;
+    border: 1px solid #dddddd !important;
+    border-radius: 30px !important;
+    padding: 0.5rem 1.3rem !important;
+    font-size: 0.95rem !important;
+    outline: none;
+    box-shadow: none !important;
+    transition: all 0.2s ease;
+}
+
+.search-inp:focus {
+    border-color: #bbbbbb !important;
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.08) !important;
+}
+
+.search-inp::placeholder {
+    color: #777;
+}
+
+
+/* =========================
+   SEARCH BUTTON
+========================= */
+
+.search-btn {
+    height: 2.9rem;
+    background-color: #fe424d !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 0 1.3rem !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #e63b46 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.search-btn i {
+    margin-right: 0.45rem;
+}
+
+
+/* =========================
+   SEARCH SUGGESTIONS
+========================= */
+
+#suggestions {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 2000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.suggestion-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #333;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f7f7f7;
+    color: #fe424d;
+}
+
+
+/* =========================
+   RIGHT SIDE LINKS
+========================= */
+
+.navbar-nav.ms-auto:last-child {
+    gap: 0.3rem;
+}
+
+.navbar-nav.ms-auto:last-child .nav-link {
+    white-space: nowrap;
+}
+
+
+/* =========================
+   SIGN UP / LOGIN
+========================= */
+
+.navbar .nav-link[href="signup"],
+.navbar .nav-link[href="/login"] {
+    font-weight: 600;
+}
+
+.navbar .nav-link[href="/listings/new"] {
+    font-weight: 500;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.navbar-toggler {
+    border: 1px solid #dddddd !important;
+    border-radius: 10px;
+    padding: 0.4rem 0.65rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 0 1rem !important;
+    }
+
+    .search-inp {
+        width: 230px;
+    }
+
+    #suggestions {
+        width: 230px;
+    }
+
+    .navbar .nav-link {
+        padding: 0.5rem 0.6rem !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+        min-height: 5rem;
+        padding: 0.7rem 1rem !important;
+    }
+
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+
+    .navbar-nav {
+        align-items: stretch;
+    }
+
+    .navbar .nav-link {
+        margin: 0.2rem 0;
+    }
+
+    .navbar form {
+        width: 100%;
+        margin: 0.7rem 0;
+    }
+
+    .search-inp {
+        width: 100%;
+    }
+
+    #suggestions {
+        width: 100%;
+    }
+
+    .search-btn {
+        padding: 0 1rem !important;
+    }
+
+    .navbar-nav.ms-auto {
+        margin-left: 0 !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .search-btn {
+        font-size: 0;
+        width: 3rem;
+        padding: 0 !important;
+    }
+
+    .search-btn i {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .search-inp {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 3rem;
+}
+
+.f-info {
+    min-height: 9rem;
+    padding: 2rem 1rem;
+    background-color: #f7f7f7;
+    border-top: 1px solid #e5e5e5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.8rem;
+    text-align: center;
+}
+
+
+/* Social Icons */
+
+.f-info-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.f-info-socials i {
+    font-size: 1.35rem;
+    color: #222222;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.f-info-socials i:hover {
+    color: #FF385C;
+    transform: translateY(-3px);
+}
+
+
+/* Brand */
+
+.f-info-brand {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555555;
+}
+
+
+/* Footer Links */
+
+.f-info-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #444444;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.f-info-links a:hover {
+    color: #FF385C;
+    text-decoration: underline;
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .f-info {
+        min-height: 10rem;
+        padding: 1.8rem 1rem;
+    }
+
+    .f-info-socials {
+        gap: 1rem;
+    }
+
+    .f-info-socials i {
+        font-size: 1.2rem;
+    }
+
+    .f-info-brand {
+        font-size: 0.82rem;
+    }
+
+    .f-info-links {
+        gap: 1rem;
+    }
+
+    .f-info-links a {
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================
+   AUTHENTICATION PAGES
+========================= */
+
+.auth-page {
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 470px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.auth-form .mb-3 {
+    margin-bottom: 1.2rem !important;
+}
+
+.auth-form .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.45rem;
+}
+
+.auth-form .form-control {
+    height: 3rem;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.auth-form .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    height: 3rem;
+    border: none !important;
+    border-radius: 10px !important;
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.auth-btn:hover {
+    background-color: #e63152 !important;
+    transform: translateY(-1px);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #eeeeee;
+    color: var(--secondary-text);
+    font-size: 0.88rem;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   AUTH MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+    .auth-page {
+        min-height: 60vh;
+        padding: 2rem 1rem;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .auth-title {
+        font-size: 1.7rem;
+    }
+}
+
+
+/* =========================
+   CREATE LISTING PAGE
+========================= */
+
+.listing-form-page {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 1rem 5rem;
+}
+
+.listing-form-card {
+    width: 100%;
+    max-width: 850px;
+
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+
+    padding: 2.5rem 3rem;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================
+   FORM HEADER
+========================= */
+
+.listing-form-header {
+    margin-bottom: 2.2rem;
+}
+
+.listing-form-header h1 {
+    margin-bottom: 0.5rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.listing-form-header p {
+    margin: 0;
+
+    color: var(--secondary-text);
+    font-size: 0.92rem;
+}
+
+
+/* =========================
+   FORM SECTIONS
+========================= */
+
+.listing-form .form-section {
+    margin-bottom: 1.4rem;
+}
+
+.listing-form .form-label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.listing-form .form-control {
+    min-height: 3rem;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+
+    padding: 0.75rem 0.9rem;
+
+    font-size: 0.92rem;
+
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.listing-form textarea.form-control {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.listing-form .form-control::placeholder {
+    color: #999999;
+}
+
+.listing-form .form-control:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+}
+
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+.image-upload-box {
+    border: 1.5px dashed #d5d5d5;
+    border-radius: 12px;
+
+    padding: 1rem;
+
+    background: #fafafa;
+
+    transition: all 0.2s ease;
+}
+
+.image-upload-box:hover {
+    border-color: var(--primary);
+    background: #fff7f8;
+}
+
+.image-upload-box > i {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+}
+
+.image-upload-box > span {
+    color: #666666;
+    font-size: 0.85rem;
+    margin-right: 1rem;
+}
+
+
+/* =========================
+   PRICE INPUT
+========================= */
+
+.input-with-symbol {
+    position: relative;
+}
+
+.input-with-symbol > span {
+    position: absolute;
+
+    left: 1rem;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555555;
+
+    z-index: 2;
+}
+
+.input-with-symbol .form-control {
+    padding-left: 2rem;
+}
+
+
+/* =========================
+   FORM ROW
+========================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+
+/* =========================
+   HELP TEXT
+========================= */
+
+.form-help {
+    display: block;
+
+    margin-top: 0.45rem;
+
+    color: #888888;
+    font-size: 0.78rem;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.listing-submit-btn {
+    width: 100%;
+    min-height: 3.1rem;
+
+    margin-top: 0.8rem;
+
+    border: none !important;
+    border-radius: 10px !important;
+
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.listing-submit-btn i {
+    margin-right: 0.45rem;
+}
+
+.listing-submit-btn:hover {
+    background-color: #e63152 !important;
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(255, 56, 92, 0.2);
+}
+
+
+/* =========================
+   VALIDATION
+========================= */
+
+.listing-form .valid-feedback {
+    color: #198754;
+    font-size: 0.78rem;
+}
+
+.listing-form .invalid-feedback {
+    font-size: 0.78rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .listing-form-page {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .listing-form-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .listing-form-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .listing-form-card {
+        border: none;
+        box-shadow: none;
+        padding: 1rem 0.5rem;
+    }
+
+    .listing-form-page {
+        padding-top: 1rem;
+    }
+
+    .listing-form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .image-upload-box > span {
+        display: block;
+        margin: 0.4rem 0;
+    }
 }

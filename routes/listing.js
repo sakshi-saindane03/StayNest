@@ -18,6 +18,10 @@ router
 //New Route
 router.get("/new", isLoggedIn, wrapAsync(listingController.renderNewForm));
 
+router.get("/search", listingController.searchOptions);
+
+router.get("/category", listingController.categorySuggestions);
+
 router
     .route("/:id")
     .get(wrapAsync(listingController.showListing))
