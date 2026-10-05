@@ -1,143 +1,163 @@
 # StayNest 🏡
 
-StayNest is a full-stack web application inspired by Airbnb. It allows users to view, create, edit, and delete property listings.
+StayNest is a full-stack web application inspired by Airbnb. Users can browse property listings, sign up, and create, edit, and delete their own listings with images and map locations.
 
-The project is currently being developed step by step while learning full-stack web development with Node.js, Express, MongoDB, and EJS.
+🔗 **Live Demo:** [staynest-otm0.onrender.com/listings](https://staynest-otm0.onrender.com/listings)
+
+> The app is hosted on Render's free tier, so the first load may take 30–60 seconds while the server wakes up.
+
+---
 
 ## 🚀 Features
 
-* View all property listings
-* View details of a specific listing
-* Add a new listing
-* Edit an existing listing
-* Delete a listing
-* MongoDB database integration
-* EJS templating
-* Reusable EJS layouts using EJS-Mate
-* Initial CSS styling for an improved user interface
-* Responsive and structured listing pages
+- Browse all property listings and view details of each one
+- Create, edit, and delete listings (full CRUD)
+- User authentication and authorization (sign up, log in, log out) with Passport.js
+- Image upload for listings using Multer and Cloudinary
+- Map and geocoding integration using Mapbox
+- Server-side form validation using Joi
+- Session management stored in MongoDB (connect-mongo)
+- Flash messages for success and error feedback
+- Reusable EJS layouts, navbar, and footer using EJS-Mate
+- Responsive, clean UI with custom CSS
+- Deployed on Render
 
-## 🛠️ Technologies Used
+---
 
-* HTML
-* CSS
-* JavaScript
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* EJS
-* EJS-Mate
-* Method-Override
+## 🛠️ Tech Stack
+
+| Layer            | Technologies                                         |
+| ---------------- | ---------------------------------------------------- |
+| Frontend         | HTML, CSS, JavaScript, EJS, EJS-Mate                 |
+| Backend          | Node.js, Express.js                                  |
+| Database         | MongoDB, Mongoose                                    |
+| Authentication   | Passport, passport-local, passport-local-mongoose    |
+| Sessions         | express-session, connect-mongo, connect-flash        |
+| Validation       | Joi                                                  |
+| File uploads     | Multer, multer-storage-cloudinary, Cloudinary        |
+| Maps             | Mapbox SDK                                           |
+| Misc             | method-override, cookie-parser, dotenv               |
+| Hosting          | Render                                               |
+
+---
 
 ## 📂 Project Structure
 
-```text
+```
 StayNest/
 │
-├── init/
-│   ├── data.js
-│   └── index.js
+├── controllers/      # Route handler logic
+├── init/             # Database seed data and initialization script
+├── models/           # Mongoose schemas
+├── public/           # Static assets (CSS, JS, images)
+├── routes/           # Express route definitions
+├── utils/            # Helper utilities (e.g., error handling)
+├── views/            # EJS templates (layouts, includes, pages)
 │
-├── models/
-│   └── listing.js
-│
-├── public/
-│   └── css/
-│       └── style.css
-│
-├── views/
-│   ├── includes/
-│   │   ├── footer.ejs
-│   │   └── navbar.ejs
-│   │
-│   ├── layouts/
-│   │   └── boilerplate.ejs
-│   │
-│   └── listings/
-│       ├── index.ejs
-│       ├── new.ejs
-│       ├── show.ejs
-│       └── edit.ejs
-│
-├── app.js
+├── app.js            # Application entry point
+├── cloudConfig.js    # Cloudinary configuration
+├── middleware.js     # Custom middleware (auth checks, validation)
+├── schema.js         # Joi validation schemas
 ├── package.json
 └── README.md
 ```
 
-## ⚙️ Installation
+---
 
-### 1. Clone the repository
+## ⚙️ Getting Started
 
-```bash
-git clone <your-repository-url>
-```
+### Prerequisites
 
-### 2. Navigate to the project folder
+- [Node.js](https://nodejs.org/) (v24.13.1 as specified in `package.json`)
+- A [MongoDB](https://www.mongodb.com/) database (local or MongoDB Atlas)
+- A [Cloudinary](https://cloudinary.com/) account (for image uploads)
+- A [Mapbox](https://www.mapbox.com/) account (for maps and geocoding)
 
-```bash
-cd StayNest
-```
+### Installation
 
-### 3. Install dependencies
+1. **Clone the repository**
 
-```bash
-npm install
-```
+   ```bash
+   git clone https://github.com/sakshi-saindane03/StayNest.git
+   ```
 
-### 4. Start MongoDB
+2. **Go to the project folder**
 
-Make sure MongoDB is installed and running on your system.
+   ```bash
+   cd StayNest
+   ```
 
-The application uses:
+3. **Install dependencies**
 
-```text
-mongodb://127.0.0.1:27017/StayNest
-```
+   ```bash
+   npm install
+   ```
 
-### 5. Start the application
+4. **Set up environment variables**
 
-```bash
-node app.js
-```
+   Create a `.env` file in the root directory and add your credentials:
 
-The application will run on:
+   ```env
+   CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUD_API_KEY=your_cloudinary_api_key
+   CLOUD_API_SECRET=your_cloudinary_api_secret
+   MAP_TOKEN=your_mapbox_access_token
+   ATLASDB_URL=your_mongodb_connection_string
+   SECRET=your_session_secret
+   ```
 
-```text
-http://localhost:8080
-```
+   > Variable names must match the ones used in your `app.js` and `cloudConfig.js`. Never commit your `.env` file.
 
-## 📌 CRUD Operations
+5. **(Optional) Seed the database with sample listings**
 
-| Operation         | Method | Route                |
-| ----------------- | ------ | -------------------- |
-| View all listings | GET    | `/listings`          |
-| Create form       | GET    | `/listings/new`      |
-| View listing      | GET    | `/listings/:id`      |
-| Create listing    | POST   | `/listings`          |
-| Edit form         | GET    | `/listings/:id/edit` |
-| Update listing    | PUT    | `/listings/:id`      |
-| Delete listing    | DELETE | `/listings/:id`      |
+   ```bash
+   node init/index.js
+   ```
 
-## 🎨 UI Improvements
+6. **Start the server**
 
-The project initially started with a basic CRUD implementation. CSS styling has now been added to improve the appearance and structure of the listing pages.
+   ```bash
+   node app.js
+   ```
 
-More UI improvements and features will be added as the project progresses.
+7. Open your browser and visit **http://localhost:8080/listings**
+
+---
+
+## 📌 Routes
+
+| Operation         | Method | Route                | Access          |
+| ----------------- | ------ | -------------------- | --------------- |
+| View all listings | GET    | `/listings`          | Public          |
+| New listing form  | GET    | `/listings/new`      | Logged-in users |
+| View listing      | GET    | `/listings/:id`      | Public          |
+| Create listing    | POST   | `/listings`          | Logged-in users |
+| Edit form         | GET    | `/listings/:id/edit` | Listing owner   |
+| Update listing    | PUT    | `/listings/:id`      | Listing owner   |
+| Delete listing    | DELETE | `/listings/:id`      | Listing owner   |
+
+---
 
 ## 🔮 Future Improvements
 
-* User authentication and authorization
-* Reviews and ratings
-* Search and filtering
-* Categories for listings
-* Image upload
-* Booking functionality
-* Improved responsive design
-* Deployment
+- Search and filtering of listings
+- Listing categories
+- Booking functionality
+- Improved responsive design
+- Wishlist / favorites
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome. Feel free to fork the repository and open a pull request.
+
+---
 
 ## 👩‍💻 Author
 
 **Sakshi Saindane**
 
-This project is created as part of my journey to learn and build full-stack web applications.
+- GitHub: [@sakshi-saindane03](https://github.com/sakshi-saindane03)
+
+Built as part of my journey to learn and build full-stack web applications.
