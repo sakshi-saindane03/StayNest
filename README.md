@@ -1,6 +1,6 @@
 # StayNest 🏡
 
-StayNest is a full-stack web application inspired by Airbnb. Users can browse property listings, sign up, and create, edit, and delete their own listings with images and map locations.
+StayNest is a full-stack accommodation discovery and listing platform. Users can explore accommodation listings, search by location, filter properties by categories, view reviews and map locations, and create, edit, and delete their own listings with images.
 
 🔗 **Live Demo:** [staynest-otm0.onrender.com/listings](https://staynest-otm0.onrender.com/listings)
 
@@ -10,8 +10,11 @@ StayNest is a full-stack web application inspired by Airbnb. Users can browse pr
 
 ## 🚀 Features
 
-- Browse all property listings and view details of each one
+- Browse all accommodation listings and view details of each one
+- Search listings by location
+- Filter listings by categories
 - Create, edit, and delete listings (full CRUD)
+- Reviews on listings
 - User authentication and authorization (sign up, log in, log out) with Passport.js
 - Image upload for listings using Multer and Cloudinary
 - Map and geocoding integration using Mapbox
@@ -19,7 +22,7 @@ StayNest is a full-stack web application inspired by Airbnb. Users can browse pr
 - Session management stored in MongoDB (connect-mongo)
 - Flash messages for success and error feedback
 - Reusable EJS layouts, navbar, and footer using EJS-Mate
-- Responsive, clean UI with custom CSS
+- Responsive UI built with Bootstrap and custom CSS
 - Deployed on Render
 
 ---
@@ -28,7 +31,7 @@ StayNest is a full-stack web application inspired by Airbnb. Users can browse pr
 
 | Layer            | Technologies                                         |
 | ---------------- | ---------------------------------------------------- |
-| Frontend         | HTML, CSS, JavaScript, EJS, EJS-Mate                 |
+| Frontend         | HTML, CSS, JavaScript, Bootstrap, EJS, EJS-Mate      |
 | Backend          | Node.js, Express.js                                  |
 | Database         | MongoDB, Mongoose                                    |
 | Authentication   | Passport, passport-local, passport-local-mongoose    |
@@ -140,11 +143,10 @@ StayNest/
 
 ## 🔮 Future Improvements
 
-- Search and filtering of listings
-- Listing categories
 - Booking functionality
-- Improved responsive design
 - Wishlist / favorites
+- Date-based availability and pricing
+- Host dashboard
 
 ---
 
